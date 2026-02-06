@@ -1,0 +1,1666 @@
+@charset "UTF-8";
+/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+/* Pixel Font */
+@font-face {
+  font-family: "Pixel Font";
+  src: url("PixelFont/pokemon_pixel_font.eot") format("eot"), url("PixelFont/pokemon_pixel_font.woff") format("woff"), url("PixelFont/pokemon_pixel_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Backup Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap');
+
+/* Pokemon Font From https://www.cdnfonts.com/pokemon-solid.font */
+@font-face {
+  font-family: 'Pokemon';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pokemon Solid'), url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff') format('woff');
+}          
+
+
+
+/* some pokemon images - https://github.com/SenshiSentou/PokemonBattleCreator/tree/master */
+
+/* PLAN */
+/* 
+
+POKEMON - Eeveelutions
+
+split into section -> every section is a different eeveelution
+each section theme should reflect the eevee theme
+(glaceon -> ice, umbreon -> night, flareon -> fire, etc.)
+Layout insipration from -> https://stylestage.dev/styles/retro-cyberpunk/
+
+background behind each section
+  -> changing? 
+    -> as u scroll the background changes to reflect the eevee type?
+  -> grassy background (like ur out)
+
+put an eevee next to its respected section 
+  -> make the eevees move slightly?
+  -> if u click on the eevee, show a pokeball animation and remove the eevee? (kinda like u caught it)
+    -> if u do this, the eevee should hide away if u hover over it for too long and come back out after a bit
+    
+Pokemon Cards - Prolly wont use but its here lol -> https://poke-holo.simey.me/
+
+*/
+
+
+:root {
+  --color-primary: #000000;
+  --color-primary-alt: #6f6ffd;
+  --color-secondary: #d42257;
+  --color-background: #9bffa3;
+  --color-text: #000000;
+  --color-light: #fff;
+  --color-anchor: #3a00ff;
+  --font-family: "Pixel Font", Tiny5, sans-serif;
+  --font-weight-strong: 500;
+  --font-size-h1: 6rem;
+  --font-size-h2: 3rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.35rem;
+  --font-size-text: 1.15rem;
+  --border-radius: 8px;
+}
+
+.container{
+  position: relative;
+}
+
+header h1,
+.container > h1:first-child, 
+.container > h2:first-child,
+#contribute section.container h3,
+#contribute footer .container h3,
+#styles .container h2,
+.profile h4,
+#about section.container:nth-child(1) blockquote strong{
+  position: relative;
+  font-family: Pokemon;
+  color: yellow;
+    z-index: 1;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5), 1px 1px 1px rgb(192, 166, 0);
+}
+
+
+header h1::before{
+  position: absolute;
+  z-index: -1;
+  -webkit-text-stroke: 0.25em rgb(0, 47, 255);
+
+}
+
+header h1::before{
+  content: 'Style Stage';
+}
+
+header,
+article section,
+.profile,
+#styles,
+.page-footer {
+  margin: 1em 2em 2em 11em;
+}
+
+header .container{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  
+  padding-right: 2em;
+}
+
+header{
+  display: flex;
+  justify-content: end;
+  position: relative;
+
+  /* Images Courtesy of iStockphoto - https://www.istockphoto.com and PokemonPets - https://www.pokemonpets.com/ */
+
+  background:
+    radial-gradient(circle, rgba(0, 208, 255, 0.759), rgb(67, 220, 217)),
+    url("https://media.istockphoto.com/id/1074889838/photo/water-drops-on-black-background.jpg?s=612x612&w=0&k=20&c=0nn6gbqxE1OtqM4aFqNbkLCXjHii-GxP-YcrQ3CxWow="),
+    url('https://static.pokemonpets.com/images/monsters-images-300-300/134-Vaporeon.webp');
+
+  background-size: cover, cover, 50%;
+  background-repeat: no-repeat;
+  background-blend-mode: hard-light, soft-light, normal;
+
+  background-position: center, center, center left;
+
+}
+
+header p{
+  width: fit-content;
+} 
+
+header h2{
+  text-shadow: 1px 1px 0px rgb(255, 255, 255, 0.25);
+}
+
+.profile,
+#styles{
+  position: relative;
+}
+header::before,
+#about > section.container::before,
+#contribute::before,
+#guidelines::before,
+.profile::before,
+#styles::before,
+.page-footer::before {
+  z-index: 9999;
+
+  display: inline-grid;
+  min-height: var(--logomark-height);
+  
+  border: 3px solid transparent;
+  border-image: linear-gradient(45deg, white 20%, red 50%, white 80%) 1;
+
+  box-shadow:
+    3px 4px 0px rgb(0, 0, 0, 0.2),
+    inset 0 0 15px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5em;
+
+  transform: translate(-50%, -75%);
+    color: var(--color-primary);
+  font-size: 3rem;
+  content: '';
+}
+
+/* IMAGES COURTESY OF JorMxDos on Deviant Art - https://www.deviantart.com/jormxdos/gallery */
+
+.page-footer::before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl5b-bde5e34d-f803-4631-9c9d-84c7512d0254.png/v1/fill/w_894,h_894/psychic_type_symbol_galar_by_jormxdos_dffvl5b-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmw1Yi1iZGU1ZTM0ZC1mODAzLTQ2MzEtOWM5ZC04NGM3NTEyZDAyNTQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.GdprCZ3xkD5I-yvUUfHtmkyBpuexlOXXO_amm1s-HNk'),
+    radial-gradient(circle, rgb(249, 132, 255), rgb(229, 34, 255));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#styles::before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl2x-0d3cd17b-b043-4fe6-9efe-e03e79df84b0.png/v1/fill/w_894,h_894/fairy_type_symbol_galar_by_jormxdos_dffvl2x-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmwyeC0wZDNjZDE3Yi1iMDQzLTRmZTYtOWVmZS1lMDNlNzlkZjg0YjAucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.29R4ouYaIY5Iu4F4hDV35xJG1g1M3ixja_2jIJl1hPI'),
+    radial-gradient(circle, rgb(255, 150, 244), rgb(255, 84, 244));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile::before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl40-c3b719e6-2acc-48e0-882a-ac3058a944b9.png/v1/fill/w_1280,h_1280/ice_type_symbol_galar_by_jormxdos_dffvl40-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmw0MC1jM2I3MTllNi0yYWNjLTQ4ZTAtODgyYS1hYzMwNThhOTQ0YjkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.OUuCZGLYjzvozAeQwII4FV6Ef9RZkVPE0Tf17C5qa2I'),
+    radial-gradient(circle, rgb(150, 255, 248), rgb(69, 205, 255));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, calc(-75% - 2rem));
+}
+
+#contribute::before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl0s-d443a3b4-fa4e-47a6-99b4-d2a769785614.png/v1/fill/w_894,h_894/grass_type_symbol_galar_by_jormxdos_dffvl0s-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmwwcy1kNDQzYTNiNC1mYTRlLTQ3YTYtOTliNC1kMmE3Njk3ODU2MTQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.6-S1a0_YYhlP6eXW5QqrJk4jtv6b5a3MRuugxqhJ6EA'),
+    radial-gradient(circle, rgb(153, 255, 148), rgb(32, 194, 23));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#guidelines::before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl4c-00dcc9df-03ac-43ca-aeca-bf64e7839ada.png/v1/fill/w_894,h_894/dark_type_symbol_galar_by_jormxdos_dffvl4c-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmw0Yy0wMGRjYzlkZi0wM2FjLTQzY2EtYWVjYS1iZjY0ZTc4MzlhZGEucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7-jDNz2kWWs8QWJBDL1Dmpo2Dx7-oaPY1cWgW48FvNk'),
+    radial-gradient(circle, rgb(132, 106, 68), rgb(40, 20, 4));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#about > section.container:nth-child(1):before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl6b-dde44f5e-8bc6-4627-88dc-897d937b57ee.png/v1/fill/w_894,h_894/electric_type_symbol_galar_by_jormxdos_dffvl6b-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmw2Yi1kZGU0NGY1ZS04YmM2LTQ2MjctODhkYy04OTdkOTM3YjU3ZWUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ylqFNiIPplKYSHm9NxvolhBO4PIWAn5PWX3L4iFPQXs'),
+    radial-gradient(circle, rgb(232, 255, 148), rgb(235, 228, 24));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, calc(-75% - 2rem));
+}
+
+#about > section.container:nth-child(2):before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl1m-a992d76d-bfa4-41cd-bff6-7546b47f2184.png/v1/fill/w_894,h_894/fire_type_symbol_galar_by_jormxdos_dffvl1m-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmwxbS1hOTkyZDc2ZC1iZmE0LTQxY2QtYmZmNi03NTQ2YjQ3ZjIxODQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.DBmvPsi4hX6q3f8XHGcinkRbtbV2zsh5nB-_s9wse_4'),
+    radial-gradient(circle, rgb(255, 178, 148), rgb(255, 72, 0));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, calc(-75% - 2rem));
+
+}
+
+header::before{
+  background: 
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffvl12-8e849c4d-fb0e-4d08-b673-0ae59eee5805.png/v1/fill/w_894,h_894/water_type_symbol_galar_by_jormxdos_dffvl12-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2U4ZGRjNGRhLTIzZGQtNDUwMi1iNjViLTM3OGM5Y2ZlNWVmYVwvZGZmdmwxMi04ZTg0OWM0ZC1mYjBlLTRkMDgtYjY3My0wYWU1OWVlZTU4MDUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.PmOI40XikNF0a-5I1ua_tL0uVAD5znTSd38Vb6qaKBU'),
+    radial-gradient(circle, rgb(111, 172, 246), rgb(45, 171, 234));
+  background-size: 90%, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, calc(-75% - 10vh));
+
+}
+
+header,
+#about > section.container:nth-child(1),
+#about > section.container:nth-child(2),
+#contribute,
+#guidelines,
+.profile,
+#styles,
+.page-footer {
+  margin-top: 4em;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, white 0%, red 50%, white 100%) 1;
+  box-shadow: 
+    inset 0 0 15px rgb(0, 0, 0, 0.75),
+    4px 6px 0px rgb(0, 0, 0, 0.2);
+}
+
+.profile {
+  border-image: linear-gradient(13deg, white 0%, red 50%, white 100%) 1;
+}
+
+#styles{
+  border-image: linear-gradient(15deg, white 0%, red 50%, white 100%) 1;
+}
+
+.page-footer {
+  border-image: linear-gradient(20deg, white 0%, red 50%, white 100%) 1;
+}
+
+
+
+#main h2::before,
+#contribute section.container h3::before,
+#contribute footer .container h3::before,
+.profile h4::before,
+#styles .container h2::before,
+#about section.container:nth-child(1) blockquote strong::before{
+    position: absolute;
+  z-index: -1;
+  -webkit-text-stroke: 0.25em rgb(0, 47, 255);
+
+  left: 0;
+}
+
+#about .container h2::before{
+  content: 'Setting the Stage';
+}
+
+#about .container:nth-child(2) h2::before{
+  content: 'Modern CSS Under the Spotlight';
+}
+
+#guidelines h2::before{
+  content: 'Guidelines';
+}
+
+#contribute .container h2::before{
+  content: 'Contribute';
+}
+
+.profile h4::before{
+  content: 'Currently Staged Style';
+}
+
+#contribute section.container h3::before{
+  content: 'Steps to Contribute';
+  left: auto;
+}
+
+#contribute section.container h3{
+  margin: auto;
+
+  padding-bottom: 0.5em;
+}
+
+#contribute footer .container h3::before{
+  content: 'Source Files';
+  left: auto;
+}
+
+#contribute footer .container h3{
+  margin: auto;
+}
+
+#styles .container h2::before{
+  left: 0;
+  content: 'Featured Styles';
+}
+
+#about section.container:nth-child(1) blockquote strong::before{
+  content: 'How it works:';
+  left: auto;
+}
+
+
+
+header .container p a:first-child::before,
+header .container p a:first-child::after {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: '';
+
+  /* Image courtesy of FreeIconsPng - https://www.freeiconspng.com/ */
+  background-image: url("https://www.freeiconspng.com/uploads/pokeball-transparent-png-2.png");
+
+  background-size: cover;
+  position: relative;
+  top: 6px;
+}
+
+header .container p a:first-child::before {
+  margin-right: 0.25em; 
+}
+
+header .container p a:first-child::after {
+  margin-left: 0.25em; 
+}
+
+
+#about section.container:nth-child(1){
+  
+  /* Images courtesy of PokemonPets https://www.pokemonpets.com/ - and Freepik - https://www.freepik.com/ */
+
+  background: 
+    url('https://static.pokemonpets.com/images/monsters-images-800-800/135-Jolteon.webp'),
+    url("https://img.freepik.com/premium-vector/electricity-decorative-vector-seamless-pattern-repeating-background-tileable-wallpaper-print_153302-163.jpg?w=740"),
+    radial-gradient(circle, rgba(238, 255, 0, 0.759), rgb(227, 189, 0));
+  background-size: 60vw, cover, cover;
+  background-repeat: no-repeat;
+  background-blend-mode: normal, soft-light, normal;
+  background-position: center calc(30% + 5vw), center center, center center;
+  }
+
+#about section.container:nth-child(1) blockquote strong{
+  display: block;
+
+  position: absolute;
+  width: max-content;
+  left: 50%;
+  transform: translateX(-50%) translateY(-2.3em);
+
+  text-align: center;
+
+  font-size: 1.5em;
+  color: yellow;
+  text-shadow: 1px 1px 1px rgb(192, 166, 0);
+}
+
+blockquote p {
+  position: relative;
+}
+
+blockquote{
+  margin-top: 4em;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--font-weight-strong);
+  line-height: 1;
+  margin-bottom: 0.65em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-size: clamp(2rem, 7vw, var(--font-size-h1));
+}
+
+h2,
+.profile h4 {
+  font-size: var(--font-size-h2);
+  font-size: clamp(2rem, 4vw, var(--font-size-h2));
+  text-align: center;
+}
+
+#main h2,
+.profile h4{
+    align-self: center;
+    padding: 0.25em 0;
+
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5), 1px 1px 1px rgb(192, 166, 0);
+  position: relative;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+p,
+li {
+  font-size: var(--font-size-text);
+}
+
+p,
+#contribute section:nth-child(2) ol li,
+.profile ul li{
+  margin: 0 0 1rem;
+  padding: 0.3em 0.7em;
+
+  color: white;
+  background-color: rgb(0, 0, 0, 0.5);
+
+  text-shadow: 1px 1px 0px rgb(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+  
+  border-radius: 5px;
+
+  }
+
+article .container > ul:not(.features) > li + li,
+article .container > ol > li + li {
+  margin-top: 1rem;
+}
+article .container * + h2 {
+  margin-top: 4rem;
+}
+article .container * + h3 {
+  margin-top: 2rem;
+}
+
+strong {
+  font-weight: var(--font-weight-strong);
+}
+
+a{
+  color: #4f4fff;
+  }
+
+p a,
+ol li a,
+.link-guidelines,
+.link-codepen,
+.profile ul li span:nth-child(2) a,
+#styles .features li a,
+.link-allstyles,
+.page-footer a{
+  text-shadow: 1px 1px 1px rgb(13, 13, 84);
+  transition: all 0.25s ease-out;
+}
+
+p a:hover,
+ol li a:hover,
+.link-guidelines:hover,
+.link-codepen:hover,
+.profile ul li span:nth-child(2) a:hover,
+.link-allstyles:hover,
+.page-footer a:hover{
+  background: rgb(0, 35, 192);
+  text-shadow: none;
+  color: yellow;
+  padding: 0.2em 0.3em;
+  border-radius: 5px;
+}
+@media (max-width: 60rem) {
+  blockquote::after {
+    transform: translate(25%, 55%) rotate(-5deg);
+  }
+}
+
+#guidelines p:nth-of-type(1),
+#contribute p:nth-of-type(1) {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-strong);
+}
+
+body {
+  background-color: var(--color-background);
+
+  /* Image courtesy of previously mentioned github - SenshiSentou */
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), 
+    url("https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/environment/backgrounds/0/0.png");
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+main {
+      width: 100%;
+}
+main:focus {
+  outline: none;
+}
+main h3 {
+  color: var(--color-primary);
+}
+
+article section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  }
+
+article .container,
+.page-footer .container,
+#styles .container,
+.profile {
+  padding: 2rem 4rem;
+}
+
+.page-footer ul,
+.features {
+  display: grid;
+  margin: 0 0 2rem;
+  padding: 0;
+  grid-gap: 1em;
+  list-style: none;
+}
+
+header {
+        min-height: 40vh;
+    padding: 10vh 2rem;
+        color: var(--color-primary);
+  text-align: center;
+}
+header h1 {
+  display: inline-grid;
+  min-height: var(--logomark-height);
+  padding: var(--logomark-padding);
+      place-content: center;
+}
+header h2 {
+  max-width: 30ch;
+}
+nav{
+  position: fixed;
+  top: 0.5em;
+  left: 0.5em;
+  background-color: rgb(68, 68, 68);
+
+  /* Image courtesy of previously mentioned github - SenshiSentou */
+  background-image: url("https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexMenubg.PNG");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  border: 3px solid black;
+  z-index: 100;
+  box-shadow: 3px 4px 0px rgb(0, 0, 0, 0.2);
+}
+nav::after{
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);  
+  height: calc(100% + 20px);
+
+  /* Images courtesy of previously mentioned github - SenshiSentou */
+  background-image: 
+    url("https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexOwned.png"),
+    url("https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexOwned.png"),
+    url("https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexOwned.png"),
+    url("https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexOwned.png");
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 20px 20px, 20px 20px, 20px 20px, 20px 20px;
+
+  background-position: 
+    top left,      
+    top right,      
+    bottom left,    
+    bottom right;   
+  
+  pointer-events: none;
+}
+
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+    margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav ul a {
+    padding: 0.25rem;
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  width: fit-content;
+  text-align: right;
+  padding-right: 0.5rem;
+  text-shadow: 1px 1px 1px black;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 125px;
+}
+
+nav ul li{
+  margin: 0.5rem;
+  border-radius: 7px;
+  box-shadow: inset -2px 2px 3px rgba(0, 0, 0, 0.5);
+  
+}
+
+nav ul li a::before{
+  width: 20px;
+  height: 20px;
+  content: '';
+  background-size: cover;
+}
+
+/* Nav icon images courtesy of Blubagarden - https://bulbagarden.net/home/ */
+nav ul li:nth-child(1){
+  background-color: #001eff;
+}
+
+nav ul li:nth-child(1) a::before {
+  background-image: url("https://archives.bulbagarden.net/media/upload/thumb/7/7f/Water_icon.png/30px-Water_icon.png");
+}
+
+nav ul li:nth-child(2){
+  background-color: rgb(199, 217, 0);
+}
+
+nav ul li:nth-child(2) a::before {
+  background-image: url("https://archives.bulbagarden.net/media/upload/thumb/a/af/Electric_icon.png/30px-Electric_icon.png");
+}
+
+nav ul li:nth-child(3){
+  background-color: red;
+}
+
+nav ul li:nth-child(3) a::before {
+  background-image: url("https://archives.bulbagarden.net/media/upload/thumb/5/5e/Fire_icon.png/30px-Fire_icon.png");
+}
+
+nav ul li:nth-child(4){
+  background-color: rgb(42, 42, 42);
+}
+
+nav ul li:nth-child(4) a::before {
+  background-image: url("https://archives.bulbagarden.net/media/upload/thumb/3/33/Dark_icon.png/30px-Dark_icon.png");
+}
+
+nav ul li:nth-child(5){
+  background-color: rgb(0, 156, 21);
+}
+
+nav ul li:nth-child(5) a::before {
+  background-image: url("https://archives.bulbagarden.net/media/upload/thumb/c/cb/Grass_icon.png/30px-Grass_icon.png");
+}
+
+nav ul li:nth-child(6){
+  background-color: rgb(62, 239, 255);
+}
+
+nav ul li:nth-child(6) a::before {
+  background-image: url("https://archives.bulbagarden.net/media/upload/thumb/8/83/Ice_icon.png/30px-Ice_icon.png");
+}
+
+nav ul li:hover{
+  box-shadow: -2px 2px 3px rgba(0,0,0,0.5);
+}
+
+nav ul a:hover, nav ul a:focus::before {
+  opacity: 0.65;
+}
+
+#about section:nth-child(2) {
+  position: relative;
+
+  /* Image courtesy of iStockphoto - https://www.istockphoto.com/ */
+  background: radial-gradient(circle, rgba(255, 104, 28, 0.759), rgb(255, 206, 10)),
+    url('https://media.istockphoto.com/id/893107732/photo/blazing-fire-flame-black-and-white-for-background-and-abstract.jpg?s=612x612&w=0&k=20&c=ZlY5UlJAWNRNcArUq-AsfDjumvhqzH2TPbczakBOKuM=');
+
+  background-size: auto 100%; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: hard-light;
+}
+#about section:nth-child(2) p:nth-of-type(2) {
+        margin: 0;
+  margin-top: 2rem;
+  
+  color: white;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    font-size: 3vw;
+  font-weight: var(--font-weight-strong);
+  text-align: left;
+
+    
+  position: relative;
+
+  padding: 1.5vw 0 0.2em 4vw;
+  
+  position: relative;
+  width: 100%;
+  height: 10vw;
+  box-sizing: border-box;
+
+  top: 2vw;
+
+    transform-origin: center;
+  background-color: rgb(39, 39, 39);
+
+  box-shadow: 0px 0px 6px black;
+
+  border-radius: 5px;
+}
+
+#about section:nth-child(2) ul {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  
+  box-shadow: 
+    0px -2px 1px #488218,
+    0px -4px 1px #94ef18,
+    0px -6px 1px #488218,
+    0px 0px 6px black
+  ;
+
+    transform-origin: center;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  margin: 0;
+  margin-bottom: 4rem;
+  padding: 0;
+  list-style: none;
+  padding-left: 50%;
+
+  /* Images courtesy of previously mentioned github - SenshiSentou and IGN - https://www.ign.com/ca*/
+  background: 
+    url('https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-black-and-white/5/57/Pokemans_136.gif'),
+    url('https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexEntry/Info/pokedexBlank.PNG'),
+    url('https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/Buttons.png'),
+    url('https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/background_sliding.PNG');
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 40%, 100% 100%, 110% 110%, 100% 100%;
+  background-position: 1vw -1vw, bottom, top left, center;
+
+  position: relative;
+  max-height: 30vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  width: 100%;
+  height: 0;
+
+  padding-top: 65%;
+  }
+
+#about section:nth-child(2) ul::-webkit-scrollbar{
+  border-radius: 0px;
+  width: 10px;
+}
+
+#about section:nth-child(2) ul::-webkit-scrollbar-track {
+  background-color: #11b078;
+  border: 2px solid #007553; 
+  margin: 1em;
+    box-shadow: inset 0 0 0 2px #29342f;
+}
+
+#about section:nth-child(2) ul::-webkit-scrollbar-thumb{
+  background: #94ef18;
+  border-radius: 0px;
+  border: 2px solid #488218;
+  width: 5px;
+}
+
+#about section:nth-child(2) ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0.25em;
+  padding: 0.25em 0.5em;
+  padding-right: 1em;
+  
+  background-color: rgb(39, 39, 39);
+  color: white;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  text-align: end;
+
+  max-width: 80vw;
+  
+  font-size: clamp(0.5rem, 2vw, 2.5rem); 
+}
+
+
+#about section:nth-child(2) ul li::before {
+  
+  /* Images courtesy of previously mentioned github - SenshiSentou */
+  background-image: url('https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexOwned.png');
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+
+  padding-left: 1.5em;
+  padding-right: 1em;
+
+  line-height: 1em;
+  height: 1em;
+}
+
+#about section:nth-child(2) ul li:hover{
+  background-color: #315a11;
+  color: #d9ff7c;
+  text-shadow: 1px 1px 0px #72b23d;
+}
+
+#about section:nth-child(2) ul li:hover::before{
+
+  /* Images courtesy of previously mentioned github - SenshiSentou */
+  background-image: url('https://raw.githubusercontent.com/SenshiSentou/PokemonBattleCreator/refs/heads/master/items/BW%20Pokedex%20rip/pokedexbg/pokedexOwned2.png');
+}
+
+#about section:nth-child(2) ul li:nth-child(1)::before {
+  content: '001';
+}
+
+#about section:nth-child(2) ul li:nth-child(2)::before {
+  content: '002';
+}
+
+#about section:nth-child(2) ul li:nth-child(3)::before {
+  content: '003';
+}
+
+#about section:nth-child(2) ul li:nth-child(4)::before {
+  content: '004';
+}
+
+#about section:nth-child(2) ul li:nth-child(5)::before {
+  content: '005';
+}
+
+#about section:nth-child(2) ul li:nth-child(6)::before {
+  content: '006';
+}
+
+#about section:nth-child(2) ul li:nth-child(7)::before {
+  content: '007';
+}
+
+#about section:nth-child(2) ul li:nth-child(8)::before {
+  content: '008';
+}
+
+#about section:nth-child(2) ul li:nth-child(9)::before {
+  content: '009';
+}
+
+#about section:nth-child(2) ul li:nth-child(10)::before {
+  content: '010';
+}
+
+#about section:nth-child(2) ul li:nth-child(11)::before {
+  content: '011';
+}
+
+#about section:nth-child(2) ul li:nth-child(12)::before {
+  content: '012';
+}
+
+#about section:nth-child(2) ul li:nth-child(13)::before {
+  content: '013';
+}
+
+#about section:nth-child(2) ul li:nth-child(14)::before {
+  content: '014';
+}
+
+#about section:nth-child(2) ul li:nth-child(15)::before {
+  content: '015';
+}
+
+#about section:nth-child(2) ul li:nth-child(16)::before {
+  content: '016';
+}
+
+#about section:nth-child(2) ul li:nth-child(17)::before {
+  content: '017';
+}
+
+#guidelines h3 {
+  display: inline-block;
+  transform: rotate(-8deg) translateX(-10%);
+  background: linear-gradient(to left, yellow, blue);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #guidelines h3 {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+@media (min-width: 120ch) {
+  #guidelines h3 {
+    transform: rotate(-8deg) translateX(-30%);
+  }
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #guidelines p:nth-of-type(2) {
+    position: relative;
+  }
+  #guidelines p:nth-of-type(2)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(4deg) translate(4.75rem, -3.5rem);
+    transform-origin: left center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--color-primary-alt);
+    font-size: 0.9em;
+    font-weight: normal;
+    content: "← Whoa, text gradients!";
+  }
+}
+#guidelines .container > a {
+  align-self: center;
+}
+
+#guidelines{
+  background: radial-gradient(circle, rgb(41, 41, 41, 0.95), rgb(20, 10, 0, 0.95));
+}
+
+#guidelines p{
+  color: yellow;
+}
+
+#guidelines .container{
+  margin: 0;
+
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+    -webkit-mask-image: radial-gradient(
+    circle 15vw at var(--x, 50%) var(--y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+        transparent 75%
+  );
+  mask-image: radial-gradient(
+    circle 15vw at var(--x, 50%) var(--y, 50%),
+    rgb(0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+        transparent 75%
+  );
+
+  /* Images courtesy of previously mentioned github - SenshiSentou, Bulbagarden - https://bulbagarden.net/home/ and Artstation by @lucylinseart - https://www.artstation.com/lucylinse */
+  background:
+    url('https://archives.bulbagarden.net/media/upload/9/9d/UNITE_Umbreon.png'),
+    url('https://cdnb.artstation.com/p/assets/images/images/014/764/247/medium/lucy-linse-forest-3333.jpg?1545350981'),
+    url('https://github.com/SenshiSentou/PokemonBattleCreator/blob/master/environment/backgrounds/5/2.png?raw=true');
+  background-size: 80%, cover, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-blend-mode: normal, overlay, normal;
+}
+
+#guidelines .container::before{
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+
+  background: radial-gradient(
+    circle 30vw at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 100, 0.3) 0%,
+    rgba(255, 255, 100, 0.1) 40%,
+    rgba(255, 255, 100, 0) 100%
+  );
+}
+
+#guidelines.flashlight-off .container {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+#guidelines.flashlight-off .container::before {
+  display: none;
+}
+
+#guidelines .flashlight-toggle {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  
+  z-index: 10;
+
+  font-weight: bold;
+  font-size: 1.75vw;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
+
+  padding: 0.4em 0.8em;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#guidelines.flashlight-off .flashlight-toggle:hover, #guidelines .flashlight-toggle{
+  background: yellow;
+  color: rgb(0, 0, 59);
+} 
+
+#guidelines .flashlight-toggle:hover, #guidelines.flashlight-off .flashlight-toggle{
+  background: rgb(0, 0, 59);
+  color: yellow;
+}
+
+#guidelines.flashlight-off .container{
+
+  /* Images courtesy of previously mentioned github - SenshiSentou, Bulbagarden - https://bulbagarden.net/home/ and Artstation by @lucylinseart - https://www.artstation.com/lucylinse */
+  background:
+    radial-gradient(circle, transparent, rgba(0, 0, 0, 0.8)),
+    url('https://archives.bulbagarden.net/media/upload/9/9d/UNITE_Umbreon.png'),
+    url('https://cdnb.artstation.com/p/assets/images/images/014/764/247/medium/lucy-linse-forest-3333.jpg?1545350981'),
+    url('https://github.com/SenshiSentou/PokemonBattleCreator/blob/master/environment/backgrounds/5/2.png?raw=true');
+  background-size: cover, 80%, cover, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-blend-mode: normal, normal, overlay, normal;
+}
+
+#guidelines, #contribute {
+    position: relative;
+
+  margin: 4em 2em 2em 11em;
+
+}
+
+#contribute {
+
+  /* Images courtesy of pngtree - https://pngtree.com/, Bulbagarden - https://bulbagarden.net/home/ and previously mentioned github - SenshiSentou */
+  background:
+    radial-gradient(circle, transparent, rgb(47, 107, 52)),
+    url('https://png.pngtree.com/png-clipart/20230920/ourmid/pngtree-green-grass-clipart-png-image_10141193.png'),
+    url('https://archives.bulbagarden.net/media/upload/thumb/8/80/0470Leafeon.png/250px-0470Leafeon.png'),
+    linear-gradient(to top, rgb(45, 197, 45), transparent),
+    url('https://github.com/SenshiSentou/PokemonBattleCreator/blob/master/environment/backgrounds/3/0.png?raw=true');
+  background-size: cover, 125%, 49%, 100%, cover;
+  background-repeat: no-repeat;
+  background-position: center, bottom, bottom right, center, top;
+  background-blend-mode: overlay, normal, normal, normal, normal;
+
+  color: darkgreen;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+#contribute .container{
+  margin: 0;
+}
+
+#contribute section {
+  padding: 2rem;
+}
+#contribute section:nth-child(2) {
+  padding-top: 0;
+}
+
+#contribute section:nth-child(2) ol li{
+  width: fit-content;
+}
+
+#files {
+  text-align: center;
+}
+#files h3 {
+  width: fit-content;
+  margin-bottom: 4vw;
+}
+#files .container {
+  display: inline-block;
+  padding: 5vmin;
+    text-align: center;
+
+  width: 100%;
+}
+#files .container a:not(:last-child) {
+  margin: 0.5rem;
+}
+#files .container a:not(:last-child):not(.link-codepen) {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+#files .link-downloadcss,
+#files .link-downloadhtml{
+  display: inline-block;
+
+  
+  color: transparent;          
+  text-indent: -9999px;        
+  overflow: hidden;           
+  white-space: nowrap;         
+
+  width: 10vw;
+  height: 10vw;
+
+  position: relative;
+}
+
+#files .link-downloadcss{
+  right: 15%;
+  transform: rotate(-15deg);
+  opacity: 0.75;
+}
+
+#files .link-downloadhtml{
+  left: 15%;
+  transform: rotate(15deg);
+  opacity: 0.75;
+}
+
+#files .link-downloadcss:hover{
+  transform: rotate(0);
+  opacity: 1;
+}
+
+#files .link-downloadhtml:hover{
+  transform: rotate(0);
+  opacity: 1;
+}
+
+#files .link-downloadcss::before,
+#files .link-downloadhtml::before,
+#files .link-downloadcss::after,
+#files .link-downloadhtml::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transition: all 0.3s ease;
+
+  z-index: 1;
+
+  opacity: 0.5;
+}
+
+#files .link-downloadcss::before,
+#files .link-downloadhtml::before {
+
+  /* Image courtesy of freeiconspng - https://www.freeiconspng.com */
+  background: url('https://www.freeiconspng.com/uploads/pokeball-transparent-png-2.png');
+  background-size: cover;
+  }
+
+#files .link-downloadcss::after {
+  
+  /* Image courtesy of Ultimate Courses - https://ultimatecourses.com/ */
+  background: url('https://ultimatecourses.com/assets/category/css-fcba6b473cb1125595dc28163be24eb673907258b5f6f6c82967a0587a9df20c.svg');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  }
+
+#files .link-downloadhtml::after {
+
+  /* Image courtesy of Ultimate Courses - https://ultimatecourses.com/ */
+  background: url('https://ultimatecourses.com/assets/category/html-227ad387715c14d3c2be832da3780deb52a8d162d65e655254903bd80a176f56.svg');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  }
+
+#files .link-downloadcss:hover::after,
+#files .link-downloadhtml:hover::after {
+  opacity: 1;
+}
+#styles h2{
+  width: fit-content;
+  padding-bottom: 2vw;
+}
+#styles {
+  text-align: center;
+  
+  /* Images courtesy of PokemonPets - https://www.pokemonpets.com/, freepik - https://www.freepik.com/ and wallhere by user XviNT - https://wallhere.com/en/wallpaper/1361965 */
+  background: 
+    radial-gradient(circle, rgb(255, 192, 203), rgb(255, 0, 255)),
+    url('https://static.pokemonpets.com/images/monsters-images-300-300/700-Sylveon.webp'),
+    radial-gradient(circle, rgba(255, 192, 203, 0.656), rgba(255, 0, 255, 0.623)),
+    url('https://img.freepik.com/free-vector/glowing-blue-stardust-particle-background-design_1017-56933.jpg?semt=ais_country_boost&w=740'),
+    radial-gradient(circle, rgba(255, 192, 203, 0.505), rgba(211, 4, 211, 0.248)),
+    url('https://i.pinimg.com/736x/ca/e0/1a/cae01ab5cce960db0d7819cc96e97ce8.jpg');
+
+  background-size: cover, 45vw, cover, 150%, cover, cover;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light, normal, color-dodge, screen, hard-light, normal;
+
+  background-position: center, right center, center, center, center, bottom center;
+
+}
+#styles .features {
+  width: 25vw;
+  margin: auto;
+}
+#styles .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#styles .features li {
+      text-align: center;
+      position: relative;
+}
+#styles .features li a {
+  text-shadow: 1px 1px 1px rgb(255, 51, 231);
+}
+.features li{  
+  background: rgb(255, 90, 244, 0.5);
+  backdrop-filter: blur(5px);
+    
+  margin: 0 0 1rem;
+  padding: 0.3em 0.7em;
+
+  color: white;
+  
+  text-shadow: 1px 1px 0px rgb(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.5);
+  
+  border: 2px solid rgb(255, 173, 236);
+  }
+.features li > span {
+  position: relative;
+  display: block;
+}
+
+.features li a {
+  position: absolute;
+
+  color: rgb(255, 175, 240);
+
+  inset: 0;
+  z-index: 1;
+  }
+.features li a ~ span {
+  display: block;
+  opacity: 0;
+  padding-top: 0;
+  transition: all 0.3s ease-in-out;
+}
+.features li a:hover ~ span{
+  opacity: 1;
+  padding-top: 1.2em;
+  font-size: 2vw;
+}
+
+.profile {
+
+  /* Images courtesy of pngmart - https://www.pngmart.com and Vecteezy - https://www.pngmart.com */
+  background:
+    radial-gradient(circle, rgb(122, 222, 255), rgb(60, 95, 156)),
+    url('https://www.pngmart.com/files/22/Glaceon-Pokemon-PNG-Isolated-Transparent-Image.png'),
+    radial-gradient(circle, lightblue, rgb(67, 136, 255)),
+    url('https://static.vecteezy.com/system/resources/thumbnails/050/954/160/small_2x/delicate-icy-textures-captured-close-up-with-shades-of-blue-and-hints-of-clarity-reflecting-light-photo.jpg'),
+    radial-gradient(circle, lightblue, rgb(67, 136, 255));
+
+  background-size: cover, 45vw, cover, cover, cover;
+  background-position: center, -2vw center, center, center, center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay, normal, overlay, overlay, normal;
+
+}
+.profile h4 {
+  margin: 0;
+    text-align: center;
+
+  padding-bottom: 1em;
+}
+.profile .container {
+  display: grid;
+  justify-items: center;
+  grid-gap: 1rem;
+
+  }
+.profile .container > a {
+  min-height: 2em;
+  padding: 0 2em;
+  border: 2px solid currentColor;
+  color: rgb(53, 201, 231);
+  
+  
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.5),
+    0 0 0 white;
+
+  position: relative;
+  bottom: 0;
+  right: 0;
+
+  backdrop-filter: blur(15px);
+
+  transition: all 0.3s ease-in-out;
+
+  text-shadow: 1px 1px 1px white;
+}
+
+.profile .container > a:hover{
+  color: white;
+  border-color: white;
+  background: rgb(53, 201, 231);
+
+  bottom: 2px;
+  right: 2px;
+
+  box-shadow: 
+    inset 0 0 0 white,
+    4px 4px 0 white;
+
+  text-shadow: 0px 0px 0px white;
+  }
+.profile ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.profile ul li {
+  display: flex;
+  padding: 0.45em;
+  margin: 0.7vw;
+  backdrop-filter: blur(15px);
+}
+.profile ul li span:nth-child(1) {
+  width: auto;
+  margin-right: 0.25em;
+  font-weight: var(--font-weight-strong);
+}
+.profile ul li span:nth-child(2) {
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+.page-footer {
+    position: relative;
+  
+  /* Images courtesy of PokemonPets - https://www.pokemonpets.com/ and Psychic-1 - https://www.psychic-1.com/ */
+  background: 
+    radial-gradient(circle, rgba(240, 35, 255, 0.4), rgba(166, 9, 166, 0.8)),
+    url('https://static.pokemonpets.com/images/monsters-images-800-800/196-Espeon.webp'),
+    url('https://www.psychic-1.com/wp-content/uploads/2018/05/Psychic-1-background-1.png'),
+    radial-gradient(circle, pink, purple);
+    
+  background-size: cover, 45vw, cover, cover;
+  background-blend-mode: overlay, normal, overlay, normal;
+  background-position: center, center left, bottom center, center;
+  background-repeat: no-repeat;
+
+  color: var(--color-light);
+}
+.page-footer p:first-child {
+    font-weight: var(--font-weight-strong);
+  letter-spacing: 0.03em;
+  text-align: left;
+  width: fit-content;
+}
+.page-footer ul {
+    margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2vw;
+  column-gap: 2vw;
+}
+.page-footer .container > :last-child {
+  margin-bottom: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-size: 1.125rem;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 0.5em;
+}
+
+@keyframes wave {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 15%,
+			16% 14%,
+			33% 20%,
+			54% 30%,
+			70% 31%,
+			84% 29%,
+			100% 22%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 30%,
+			15% 35%,
+			34% 36%,
+			51% 32%,
+			67% 20%,
+			84% 15%,
+			100% 16%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+header .link-github {
+  min-height: 3em;
+  background-color: rgb(97, 165, 255);
+  color: #001eff;
+    animation: wave 3s ease-in-out infinite;
+  padding: 0 1em;
+  border: 2px solid rgb(177, 250, 255);
+}
+
+header .link-github:hover{
+  color: rgb(97, 165, 255);
+  background-color: #485dff;
+} 
+
+[class^=link]:not(.link-codepen),
+.profile .container > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+    transform: translate(0, 0);
+  transition: 180ms all ease-in-out;
+  font-size: 1.125rem;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+
+}
+
+[class^=link]:not(.link-codepen):focus,
+.profile .container > a:focus {
+  outline-color: transparent;
+  outline-style: solid;
+}
+
+.page-footer [class^=link] {
+  position: relative;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  min-height: 2.5em;
+    background-color: rgb(0, 0, 0, 0.5);
+  color: rgb(236, 94, 255);
+
+  box-shadow:
+    inset 0 0 15px rgb(255, 41, 205, 0.75),
+    0 0 0 rgb(255, 41, 205);
+  text-shadow: 1px 1px 1px rgb(145, 18, 145);
+
+  border: 2px solid rgb(255, 151, 222);
+
+  backdrop-filter: blur(15px);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.page-footer [class^=link]:hover {
+  border-radius: 0px;
+  bottom: 2px;
+  right: 2px;
+
+  color: rgb(145, 18, 145);
+  background-color: rgb(236, 94, 255);
+
+  box-shadow:
+    inset 0 0 0 rgb(255, 41, 205, 0.75),
+    4px 4px 0 rgb(255, 41, 205);
+  text-shadow: 1px 1px 1px rgb(255, 41, 205);
+}
+
+.link-codepen {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  font-size: var(--font-size-h4);
+}
+.link-codepen::before {
+  position: absolute;
+  padding-right: 1.25em;
+  transform: translate(15%, -90%) rotate(-3deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 79.6 187.1'%3E%3Cpath fill='%236f6ffd' d='M12 131l-2 13-3 26a10 10 0 000 2 1 1 0 001 0 24 24 0 002-3 37 37 0 016-8 73 73 0 007-9l24-33 4-5a70 70 0 006-7l15-20a8 8 0 001-1 1 1 0 000-1 16 16 0 00-2-1l-8-3a69 69 0 01-13-6 7 7 0 00-1-1l-16-6-13-7a57 57 0 00-10-4 17 17 0 01-2-1 2 2 0 01-1-4 18 18 0 012-2 93 93 0 0011-13 95 95 0 018-8l10-11a32 32 0 003-4c3-5 7-9 12-13a12 12 0 011-1 1 1 0 012 0 2 2 0 010 2 27 27 0 01-3 3 104 104 0 00-10 12 115 115 0 01-11 13 102 102 0 00-11 13 78 78 0 01-5 7l-2 2a1 1 0 000 1l19 8 9 4 3 2a77 77 0 0113 5 22 22 0 003 2l17 8a8 8 0 011 1 2 2 0 010 2 22 22 0 01-1 3l-11 14a33 33 0 00-2 3 98 98 0 01-10 13l-5 7-23 31a87 87 0 01-7 9 60 60 0 00-6 8l-2 3a1 1 0 000 1l9-4 12-6 10-6 13-7a10 10 0 012 0 2 2 0 012 1 2 2 0 010 3 24 24 0 01-3 1l-8 4-20 11-24 12a19 19 0 01-2 1 2 2 0 01-3-2 10 10 0 010-2l1-7 3-24 3-21a39 39 0 011-5 2 2 0 013-1 2 2 0 011 2v4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 130%;
+  background-size: 14%;
+  color: #6f6ffd;
+  font-size: 0.85em;
+  content: "Jump right in";
+}
+
+.link-allstyles {
+  font-size: var(--font-size-h4);
+}
+@media (max-width: 400px) {
+  .link-allstyles {
+    margin-left: 6rem;
+  }
+}
+
+.link-github svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  fill: currentColor;
+}
